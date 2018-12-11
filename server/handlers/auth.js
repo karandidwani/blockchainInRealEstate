@@ -19,6 +19,7 @@ exports.signin = async function(req, res, next) {
                 process.env.SECRET_KEY
             );
             return res.status(200).json({
+                user,
                 id,
                 username,
                 profileImageUrl,
@@ -48,6 +49,7 @@ exports.signup = async function(req, res, next) {
             process.env.SECRET_KEY
         );
         return res.status(200).json({
+            user,
             id,
             username,
             profileImageUrl,

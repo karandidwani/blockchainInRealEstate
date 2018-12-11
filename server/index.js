@@ -5,7 +5,9 @@ const cors = require("cors");
 const errorHandler = require("./handlers/error");
 const authRoutes = require("./routes/auth");
 const messagesRoutes = require("./routes/messages");
+const propertyRoutes = require("./routes/property")
 const { loginRequired, ensureCorrectUser } = require("./middleware/auth");
+const db = require('./models')
 
 const PORT = 8081;
 
@@ -20,6 +22,14 @@ app.use("/api/users/:id/messages",
     ensureCorrectUser,
     messagesRoutes);
 
+app.use("/api/users/:id/properties",
+    loginRequired,
+    ensureCorrectUser,
+    propertyRoutes);
+
+app.use("/api/properties/:id",
+    propertyRoutes);
+
 app.get("/api/messages", loginRequired, async function(req, res, next) {
     try {
         let messages = await db.Message.find()
@@ -33,6 +43,17 @@ app.get("/api/messages", loginRequired, async function(req, res, next) {
         return next(err);
     }
 });
+
+app.get("/api/properties", async function(req,res,next){
+    try{
+        console.log()
+        let properties = await db.Property.find()
+            .sort({createdAt: "desc"})
+        return res.status(200).json(properties);
+    }catch (err) {
+        return next(err);
+    }
+})
 
 
 app.use(function(req,res,next){

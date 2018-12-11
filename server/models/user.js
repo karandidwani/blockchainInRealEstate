@@ -7,6 +7,16 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    firstname : {
+        type : String,
+        required : true,
+        trim : true
+    },
+    lastname : {
+        type : String,
+        required : true,
+        trim : true
+    },
     username: {
         type: String,
         required: true,
@@ -19,12 +29,63 @@ const userSchema = new mongoose.Schema({
     profileImageUrl: {
         type: String,
     },
+    owns : [{
+        property : {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Property'
+        },
+        // contactedBy : [
+        //     {
+        //         intendedBuyer : {
+        //             type : mongoose.Schema.Types.ObjectId,
+        //             ref : 'User'
+        //         },
+        //         responded : {
+        //             type : Boolean,
+        //             default :false
+        //         },
+        //         repliedWith : {
+        //             type : Boolean,
+        //             default :false
+        //         }
+        //     }
+        // ]
+
+    }],
+
+    favorite : [{
+        propertyId : {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Property'
+        }
+    }],
+
+    // If a person is interested in a property, he could mark it for later evaluation
+    contactedOwner : [{
+        propertyId : {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Property'
+        },
+        ownerResponded : {
+            type :Boolean,
+            default : false
+        },
+        ownerApproved : {
+            type :Boolean,
+            default : false
+        },
+        ownersContact : {
+            type : String,
+            default : null
+        }
+    }],
     messages: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Message"
         }
     ]
+
 });
 
 userSchema.pre("save", async function(next){

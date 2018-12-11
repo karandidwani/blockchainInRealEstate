@@ -1,0 +1,294 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
+
+body {
+    background-color: #e6ecf0;
+}
+
+/* Nav */
+
+.navbar {
+    margin-bottom: 1rem;
+}
+
+.navbar a {
+    font-weight: bold;
+    color: black;
+}
+
+.navbar a:hover {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.navbar-brand > i {
+    display: inline-block;
+    width: 20px;
+    margin-bottom: 2px;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+ul.nav.navbar-nav li {
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+}
+
+.navbar {
+    background: #2c3977;
+}
+
+.btn-home{
+    background-color: #2c3977;
+    color: #fff;
+}
+
+hr.style-two {
+    border: 0;
+    background-color: #fff;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+}
+
+.home-hero {
+    /*width: 100vw;*/
+    height: 100vh;
+    top: 4rem;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    background-image: url("./images/Real-Estate-Blockchain.png");
+    text-align: center;
+    padding: 1rem;
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+    text-shadow: 0 0 8px #66757f;
+}
+
+.image-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+div.item {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 10px 1%;
+    min-width: 220px;
+    max-width: 400px;
+    width: 100%;
+    background: #000000;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1000px) {
+    .image-container {
+        flex-direction: column;
+
+    }
+
+    .home-hero{
+        height: auto;
+    }
+}
+
+div.item * {
+    box-sizing: border-box;
+}
+
+div.item img {
+    max-width: 100%;
+    vertical-align: top;
+    height: 210px;
+    transform : scale(1.25);
+    animation: zoomeffect 10s linear 0s infinite alternate;
+}
+
+@keyframes zoomeffect {
+
+    0%{
+        transform : scale(1.20);
+    }
+    25%{
+        transform : scale(1.40);
+    }
+    50%{
+        transform : scale(1.60);
+    }
+    75%{
+        transform : scale(1.80)
+    }
+    100%{
+        transform : scale(2.0)
+    }
+
+}
+
+div.item i {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    border-radius: 50%;
+    font-size: 34px;
+    color: #000000;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background: #ffffff;
+    transform: translate(-50%, -50%) scale(0) rotate(180deg);
+}
+
+div.item a {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+div.item.blue {
+    background-color: #34495e;
+}
+div.item.blue i {
+    color: #34495e;
+}
+div.item.red {
+    background-color: #e74c3c;
+}
+div.item.red i {
+    color: #e74c3c;
+}
+
+div.item.green {
+    background-color: #16a085;
+}
+div.item.green i {
+    color: #16a085;
+}
+
+div.item:hover img{
+    opacity : 0.3;
+    filter : grayscale(100%);
+    transform : scale(1)
+}
+
+div.item * {
+    transition: all 0.5s ease-in-out;
+    margin: 2rem;
+}
+
+div.item:hover{
+    transform : scale(1.1);
+    transition: all 0.5s ease-in-out;
+}
+
+div.item:hover i{
+    transform : translate(-50%, -50%) scale(1.5) rotate(0deg);
+    transition: transform 1s 100ms cubic-bezier(0.2,1.83,.38,.63);
+}
+
+.form-class{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 40px;
+    align-items: center;
+
+}
+
+.card-container{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+.form-control{
+    margin-bottom: 15px;
+}
+
+.search-btn{
+    margin-top: 8px;
+}
+
+.search-form{
+    margin-left: 8rem;
+}
+
+.short{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.col-form{
+    margin: 20px;
+    border-style: solid;
+}
+
+.form-back{
+    background-image: url("./images/doodle.jpg");
+    background-position: center center;
+    background-size: cover;
+}
+.link-image{
+    color: white;
+}
+
+
+#messages .list-group-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 7px 20px 12px;
+}
+
+#messages:not(.no-hover) .list-group-item:hover {
+    background-color: #e6ecf0;
+}
+
+.timeline-image {
+    border-radius: 50px;
+    height: 48px;
+    width: 48px;
+    margin: 2px 30px 10px 10px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+a.btn.btn-danger,
+a.btn.btn-danger:hover {
+    color: white;
+}
+
+.navbar-header {
+     margin-left: 5rem;
+ }
+
+i {
+    margin-right: 0.3rem;
+}
+
+.home-img{
+    height: 3rem;
+    vertical-align: text-bottom;
+}
+
+
+.form-back-sell{
+
+}
